@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Let's get this party started!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-25T13:11:52.422Z</updated>
+  <updated>2016-07-25T16:07:41.789Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,15 +15,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[javaScript入门]]></title>
+    <title><![CDATA[JavaScript入门]]></title>
     <link href="http://yoursite.com/2016/07/25/javaScript%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2016/07/25/javaScript入门/</id>
     <published>2016-07-25T13:11:52.000Z</published>
-    <updated>2016-07-25T13:11:52.422Z</updated>
-    <content type="html"></content>
+    <updated>2016-07-25T16:07:41.789Z</updated>
+    <content type="html"><![CDATA[<blockquote><p>作者：王颖，转载请注明出处</p>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" rel="external">lizwangying.github.io</a></cite></footer></blockquote>    
+<p>因为Hexo非常酷，so打算自己写一套模板，学一学JavaScript这么酷的东西<br>本文主要介绍一下内容</p>
+<ol>
+<li>Step one-&gt;如何插入JS</li>
+<li>非小白，一眼就懂的基础知识</li>
+<li>常用酷酷滴方法</li>
+<li>DOM操作  </li>
+</ol>
+<h2 id="u5982_u4F55_u63D2_u5165JS_uFF1F"><a href="#u5982_u4F55_u63D2_u5165JS_uFF1F" class="headerlink" title="如何插入JS？"></a>如何插入JS？</h2><p>  JavaScript这个东西酷在什么地方？他就是很神奇！她长在哪里都行，就是这么任性爱自由！！！Seriously！！！  </p>
+<ol>
+<li>第一个位置，在<code>&lt;head&gt;&lt;/head&gt;</code>标签里面，例如在index.html中 <figure class="highlight xml"><figcaption><span>[index.html]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>JS代码爱自由，放在Head里<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">  <span class="built_in">document</span>.write(<span class="string">"I love"</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line"> <span class="built_in">document</span>.write(<span class="string">"javascript"</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>   
+</li>
+</ol>
+<ol>
+<li><p>外部引用JS<br>HTML文件可以和JS代码分开,单独创建一个JavaScript文件,文件后缀名为.js，然后将JS代码直接写在JS文件中,此处注意文件路径。<br>这里的路径就为index.html同级目录下名字为script.js文件。那么这个文件里面可以直接写js代码，不需要添加根标签<code>&lt;script type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code> 。 </p>
+<figure class="highlight xml"><figcaption><span>[index.html]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>外部引用JS文件<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>   
+</li>
+<li><p>神奇的哪里都能长，我说的就是<code>&lt;body&gt;&lt;/body&gt;</code>里面。大家都知道，一个html文件，body里面的标签多了去了，script就像是一个癌细胞，哪里都能长。任何标签，任何元素。  </p>
+</li>
+</ol>
+<h2 id="u975E_u5C0F_u767D_uFF0C_u4E00_u773C_u5C31_u61C2_u7684_u57FA_u7840_u77E5_u8BC6"><a href="#u975E_u5C0F_u767D_uFF0C_u4E00_u773C_u5C31_u61C2_u7684_u57FA_u7840_u77E5_u8BC6" class="headerlink" title="非小白，一眼就懂的基础知识"></a>非小白，一眼就懂的基础知识</h2><p>本人有Java基础， 编程语言有很多共通点，所以总结的东西就是和java不同需要注意的地方。所以如果您是纯小白，我建议您移步慕课网。    </p>
+]]></content>
     <summary type="html">
-    
+    <![CDATA[<blockquote><p>作者：王颖，转载请注明出处</p>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" rel=]]>
     </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="html+CSS" scheme="http://yoursite.com/tags/html-CSS/"/>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
