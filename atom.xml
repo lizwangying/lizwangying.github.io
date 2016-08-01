@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Let's get this party started!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-25T16:15:18.419Z</updated>
+  <updated>2016-08-01T16:12:25.681Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Google官方MVP Demo学习搭建Android 项目架构]]></title>
+    <link href="http://yoursite.com/2016/08/01/Google%E5%AE%98%E6%96%B9MVP-Demo%E5%AD%A6%E4%B9%A0%E6%90%AD%E5%BB%BAAndroid-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84/"/>
+    <id>http://yoursite.com/2016/08/01/Google官方MVP-Demo学习搭建Android-项目架构/</id>
+    <published>2016-08-01T15:43:18.000Z</published>
+    <updated>2016-08-01T16:12:25.681Z</updated>
+    <content type="html"><![CDATA[<blockquote><p>作者：王颖，转载请注明出处</p>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" rel="external">lizwangying.github.io</a></cite></footer></blockquote>    
+<p>首先，奉上<strong><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">Google官方github</a></strong>。<br>大概翻译一下ReadMe，服务一下英语不好的小伙伴。有不正之处，请大家一定要纠正我哦，谢谢。</p>
+<h1 id="Android__u67B6_u6784_u84DD_u56FE_5B_u6D4B_u8BD5_5D"><a href="#Android__u67B6_u6784_u84DD_u56FE_5B_u6D4B_u8BD5_5D" class="headerlink" title="Android 架构蓝图[测试]"></a>Android 架构蓝图[测试]</h1><p>组织和架构一个Android应用程序框架的时候可以具有很强的灵活性。当然，这种自由，虽然很赞但同时给用用程序带来了庞大的类库，不统一的命名方式和架构（或者缺乏），这使得测试，维护还有扩展都很困难。</p>
+<p>安卓系统架构蓝图就是为了展示尽可能解决这些问题的方法给大家。在这个项目中，我们提供了相同的应用程序使用了不同的架构概念和工具。 </p>
+<p>您可以使用这些样本作为参考或者作为您自己的应用程序的起点。我们这里着重展示代码架构、体系结构、测试和可维护性。注意，有很多方法可以使用这些体系结构和工具构建应用程序，根据您的优先级选择。这些例子不是唯一不可的例子，请以保持UI为最简单原则来构建您的App架构。 </p>
+<p>哦，基本大家都能看懂，我就不翻译了。下面记录一下学习心得。挨个来…</p>
+<p>1.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote><p>作者：王颖，转载请注明出处</p>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" rel=]]>
+    </summary>
+    
+      <category term="Android Architecture" scheme="http://yoursite.com/tags/Android-Architecture/"/>
+    
+      <category term="MVP" scheme="http://yoursite.com/tags/MVP/"/>
+    
+      <category term="translation" scheme="http://yoursite.com/tags/translation/"/>
+    
+      <category term="Github源码学习" scheme="http://yoursite.com/categories/Github%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[JavaScript入门]]></title>
