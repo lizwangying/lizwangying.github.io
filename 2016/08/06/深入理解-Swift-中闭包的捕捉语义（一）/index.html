@@ -30,7 +30,7 @@
 
 从来没有学过swift，但是这篇文章是我参与翻译的，哈哈，有一点点小成就感，拿来分享给大家，至少我知道了到底神马是闭包。">
 <meta property="og:image" content="http://ac-Myg6wSTV.clouddn.com/0c59ce77448794cf9dcc.gif">
-<meta property="og:updated_time" content="2016-08-06T13:34:04.623Z">
+<meta property="og:updated_time" content="2016-08-06T14:27:10.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Swift 中闭包的捕捉语义（一）">
 <meta name="twitter:description" content="原文链接 : Closures Capture Semantics, Part 1: Catch them all!
@@ -169,7 +169,7 @@
 				
 				<section class="switch-part switch-part4">
 				
-					<div id="js-aboutme">要和二的到一起的人做朋友！</div>
+					<div id="js-aboutme">文章都是原创自己写的，所以请珍惜我的劳动成果喽！转载请附上我的原文链接。</div>
 				</section>
 				
 			</div>
@@ -275,6 +275,7 @@
 <p>即使是有 <code>ARC</code> 的今天，理解内存管理和对象的生命周期仍旧是非常重要的。当使用闭包的时候是一个特例，它在 <code>Swift</code> 中出现的场景越来越多，比起 <code>Objective</code> 的代码块的捕获规则有很多不同的捕获语法。让我们看看它们是如果工作的吧。</p>
 <h2>概述</h2>
 <p>在 <code>Swift</code> 中，闭包捕获了他们引用到的变量: 默认情况下，在闭包外申明的变量会被使用这些变量的闭包在内部保留，为了确保他们在闭包被执行的时候仍旧存在。</p>
+<p>&lt;!-- more --&gt;</p>
 <p>对于这篇文章的来说，让我们定义一个简单的 <code>Pokemon</code> 类，举个例子:</p>
 <pre><code>class Pokemon: CustomDebugStringConvertible {
   let name: String
@@ -567,7 +568,7 @@ closure 2 - value has been now set to &lt;Pokemon Charizard&gt;
         <p><span>本文标题:</span><a href="/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/">深入理解 Swift 中闭包的捕捉语义（一）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Liz 的个人博客">Liz</a></p>
         <p><span>发布时间:</span>2016年08月06日 - 21时09分</p>
-        <p><span>最后更新:</span>2016年08月06日 - 21时34分</p>
+        <p><span>最后更新:</span>2016年08月06日 - 22时27分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/" title="深入理解 Swift 中闭包的捕捉语义（一）">http://yoursite.com/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/　　作者: Liz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

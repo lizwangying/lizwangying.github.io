@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Let's get this party started!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-06T13:34:04.623Z</updated>
+  <updated>2016-08-06T14:27:10.626Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2016/08/06/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-Swift-%E4%B8%AD%E9%97%AD%E5%8C%85%E7%9A%84%E6%8D%95%E6%8D%89%E8%AF%AD%E4%B9%89%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/</id>
     <published>2016-08-06T13:09:22.000Z</published>
-    <updated>2016-08-06T13:34:04.623Z</updated>
+    <updated>2016-08-06T14:27:10.626Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <ul>
 <li>原文链接 : <a href="http://alisoftware.github.io/swift/closures/2016/07/25/closure-capture-1/" target="_blank" rel="external">Closures Capture Semantics, Part 1: Catch them all!</a></li>
@@ -35,6 +35,7 @@
 <p>即使是有 <code>ARC</code> 的今天，理解内存管理和对象的生命周期仍旧是非常重要的。当使用闭包的时候是一个特例，它在 <code>Swift</code> 中出现的场景越来越多，比起 <code>Objective</code> 的代码块的捕获规则有很多不同的捕获语法。让我们看看它们是如果工作的吧。</p>
 <h2>概述</h2>
 <p>在 <code>Swift</code> 中，闭包捕获了他们引用到的变量: 默认情况下，在闭包外申明的变量会被使用这些变量的闭包在内部保留，为了确保他们在闭包被执行的时候仍旧存在。</p>
+<p>&lt;!-- more --&gt;</p>
 <p>对于这篇文章的来说，让我们定义一个简单的 <code>Pokemon</code> 类，举个例子:</p>
 <pre><code>class Pokemon: CustomDebugStringConvertible {
   let name: String
