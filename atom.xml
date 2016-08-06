@@ -3,9 +3,9 @@
   <title><![CDATA[Life is a party]]></title>
   <subtitle><![CDATA[Let's get this party started!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2016-08-06T14:27:10.626Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://lizwangying.github.io/#%20Header/"/>
+  <updated>2016-08-06T14:52:38.345Z</updated>
+  <id>http://lizwangying.github.io/# Header/</id>
   
   <author>
     <name><![CDATA[Liz]]></name>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[深入理解 Swift 中闭包的捕捉语义（一）]]></title>
-    <link href="http://yoursite.com/2016/08/06/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-Swift-%E4%B8%AD%E9%97%AD%E5%8C%85%E7%9A%84%E6%8D%95%E6%8D%89%E8%AF%AD%E4%B9%89%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/</id>
+    <link href="http://lizwangying.github.io/#%20Header/2016/08/06/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-Swift-%E4%B8%AD%E9%97%AD%E5%8C%85%E7%9A%84%E6%8D%95%E6%8D%89%E8%AF%AD%E4%B9%89%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://lizwangying.github.io/# Header/2016/08/06/深入理解-Swift-中闭包的捕捉语义（一）/</id>
     <published>2016-08-06T13:09:22.000Z</published>
-    <updated>2016-08-06T14:27:10.626Z</updated>
+    <updated>2016-08-06T14:52:38.345Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <ul>
 <li>原文链接 : <a href="http://alisoftware.github.io/swift/closures/2016/07/25/closure-capture-1/" target="_blank" rel="external">Closures Capture Semantics, Part 1: Catch them all!</a></li>
@@ -324,20 +324,20 @@ closure 2 - value has been now set to &lt;Pokemon Charizard&gt;
 <li>原文链接 : <a href="http://alisoftware.github.io/swift/closures/2016/07/25/closure-capture-1/" target="_blank" rel="extern]]>
     </summary>
     
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term="swift" scheme="http://lizwangying.github.io/#%20Header/tags/swift/"/>
     
-      <category term="翻译" scheme="http://yoursite.com/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://lizwangying.github.io/#%20Header/categories/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Google官方MVP Demo学习搭建Android 项目架构]]></title>
-    <link href="http://yoursite.com/2016/08/01/Google%E5%AE%98%E6%96%B9MVP-Demo%E5%AD%A6%E4%B9%A0%E6%90%AD%E5%BB%BAAndroid-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84/"/>
-    <id>http://yoursite.com/2016/08/01/Google官方MVP-Demo学习搭建Android-项目架构/</id>
+    <link href="http://lizwangying.github.io/#%20Header/2016/08/01/Google%E5%AE%98%E6%96%B9MVP-Demo%E5%AD%A6%E4%B9%A0%E6%90%AD%E5%BB%BAAndroid-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84/"/>
+    <id>http://lizwangying.github.io/# Header/2016/08/01/Google官方MVP-Demo学习搭建Android-项目架构/</id>
     <published>2016-08-01T15:43:18.000Z</published>
     <updated>2016-08-01T16:12:25.681Z</updated>
     <content type="html"><![CDATA[<p><blockquote><p>作者：王颖，转载请注明出处</p>
-<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" rel="external">lizwangying.github.io</a></cite></footer></blockquote></p>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/">lizwangying.github.io</a></cite></footer></blockquote></p>
 <p>首先，奉上**<a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">Google官方github</a>**。
 大概翻译一下ReadMe，服务一下英语不好的小伙伴。有不正之处，请大家一定要纠正我哦，谢谢。</p>
 <h1>Android 架构蓝图[测试]</h1>
@@ -351,27 +351,27 @@ closure 2 - value has been now set to &lt;Pokemon Charizard&gt;
 ]]></content>
     <summary type="html">
     <![CDATA[<p><blockquote><p>作者：王颖，转载请注明出处</p>
-<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" r]]>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/">lizwangying.githu]]>
     </summary>
     
-      <category term="Android Architecture" scheme="http://yoursite.com/tags/Android-Architecture/"/>
+      <category term="Android Architecture" scheme="http://lizwangying.github.io/#%20Header/tags/Android-Architecture/"/>
     
-      <category term="MVP" scheme="http://yoursite.com/tags/MVP/"/>
+      <category term="MVP" scheme="http://lizwangying.github.io/#%20Header/tags/MVP/"/>
     
-      <category term="translation" scheme="http://yoursite.com/tags/translation/"/>
+      <category term="translation" scheme="http://lizwangying.github.io/#%20Header/tags/translation/"/>
     
-      <category term="Github源码学习" scheme="http://yoursite.com/categories/Github%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Github源码学习" scheme="http://lizwangying.github.io/#%20Header/categories/Github%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[JavaScript老司机快速入门，知识点总结]]></title>
-    <link href="http://yoursite.com/2016/07/25/javaScript%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2016/07/25/javaScript入门/</id>
+    <link href="http://lizwangying.github.io/#%20Header/2016/07/25/javaScript%E5%85%A5%E9%97%A8/"/>
+    <id>http://lizwangying.github.io/# Header/2016/07/25/javaScript入门/</id>
     <published>2016-07-25T13:11:52.000Z</published>
-    <updated>2016-08-04T16:14:56.164Z</updated>
+    <updated>2016-08-06T14:50:45.898Z</updated>
     <content type="html"><![CDATA[<p><blockquote><p>作者：王颖，转载请注明出处</p>
-<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" rel="external">lizwangying.github.io</a></cite></footer></blockquote></p>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/">lizwangying.github.io</a></cite></footer></blockquote></p>
 <hr>
 <p><strong>哈哈，这里的老司机指的是：有（任何）语言的编程基础（除了JS）的老司机们</strong></p>
 <p>因为Hexo非常酷，so打算自己写一套模板，学一学JavaScript这么酷的东西</p>
@@ -383,7 +383,8 @@ closure 2 - value has been now set to &lt;Pokemon Charizard&gt;
 <li>DOM操作</li>
 </ol>
 <h2>Step one-&gt;如何插入JS？</h2>
-<p>JavaScript这个东西酷在什么地方？他就是很神奇！她长在哪里都行，就是这么任性爱自由！！！Seriously！！！</p>
+<p>JavaScript这个东西酷在什么地方？他就是很神奇！她长在哪里都行，就是这么任性爱自由！！！Seriously！！！<br>
+&lt;!--more--&gt;</p>
 <ol>
 <li>
 <p>第一个位置，在<code>&lt;head&gt;&lt;/head&gt;</code>标签里面，例如在index.html中
@@ -426,21 +427,21 @@ str2：文本框中的内容，可以修改，其实就是默认输入的内容�
 ]]></content>
     <summary type="html">
     <![CDATA[<p><blockquote><p>作者：王颖，转载请注明出处</p>
-<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/" target="_blank" r]]>
+<footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/">lizwangying.githu]]>
     </summary>
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lizwangying.github.io/#%20Header/tags/JavaScript/"/>
     
-      <category term="html+CSS" scheme="http://yoursite.com/tags/html-CSS/"/>
+      <category term="html+CSS" scheme="http://lizwangying.github.io/#%20Header/tags/html-CSS/"/>
     
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://lizwangying.github.io/#%20Header/categories/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[博客第一篇]]></title>
-    <link href="http://yoursite.com/2015/12/16/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AF%87/"/>
-    <id>http://yoursite.com/2015/12/16/博客第一篇/</id>
+    <link href="http://lizwangying.github.io/#%20Header/2015/12/16/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AF%87/"/>
+    <id>http://lizwangying.github.io/# Header/2015/12/16/博客第一篇/</id>
     <published>2015-12-16T08:16:11.000Z</published>
     <updated>2015-12-16T08:18:44.257Z</updated>
     <content type="html"><![CDATA[<h2>First blog</h2>
