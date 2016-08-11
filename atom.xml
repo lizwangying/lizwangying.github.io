@@ -53,7 +53,7 @@
     <link href="http://lizwangying.github.io/#%20Header/2016/07/25/javaScript%E5%85%A5%E9%97%A8/"/>
     <id>http://lizwangying.github.io/# Header/2016/07/25/javaScript入门/</id>
     <published>2016-07-25T13:11:52.000Z</published>
-    <updated>2016-08-06T15:03:09.433Z</updated>
+    <updated>2016-08-07T05:16:37.757Z</updated>
     <content type="html"><![CDATA[<p><blockquote><p>作者：王颖，转载请注明出处</p>
 <footer><strong>lizwangying  -  </strong><cite><a href="http://lizwangying.github.io/">lizwangying.github.io</a></cite></footer></blockquote></p>
 <hr>
@@ -76,19 +76,20 @@
 <li>
 <p>外部引用JS
 HTML文件可以和JS代码分开,单独创建一个JavaScript文件,文件后缀名为.js，然后将JS代码直接写在JS文件中,此处注意文件路径。
-这里的路径就为index.html同级目录下名字为script.js文件。那么这个文件里面可以直接写js代码，不需要添加根标签<code>&lt;script type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code> 。
+这里的路径就为index.html同级目录下名字为script.js文件。那么这个文件里面可以直接写js代码，不需要添加根标签<code>&lt;script type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code> 。</p>
+</li>
+</ol>
+<p>&lt;!--more--&gt;
 <figure class="highlight xml"><figcaption><span>[index.html]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>外部引用JS文件<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"> document.write("外部引用JS文件");</span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>神奇的JavaScript哪里都能放，我说的就是<code>&lt;body&gt;&lt;/body&gt;</code>里面。大家都知道，一个html文件，body里面的标签多了去了，script就像是一个癌细胞，哪里都能长。任何标签，任何元素。</p>
-</li>
+<ol start="3">
+<li>神奇的JavaScript哪里都能放，我说的就是<code>&lt;body&gt;&lt;/body&gt;</code>里面。大家都知道，一个html文件，body里面的标签多了去了，script就像是一个癌细胞，哪里都能长。任何标签，任何元素。</li>
 </ol>
 <h2>非小白，一眼就懂的基础知识点点点</h2>
 <p>本人有Java基础， 编程语言有很多共通点，所以总结的东西就是和java不同需要注意的地方。所以如果您是纯小白，我建议您移步<a href="http://www.imooc.com/learn/36" target="_blank" rel="external">慕课网-JavaScript入门篇</a>，酷酷的学习网站，网页编辑器，立马就能预览你的代码，本篇文章就是我耐心学完之后总结的学习笔记。</p>
 <ul>
 <li>代码结尾加分号；</li>
 <li>注释： //单行注释、 /* 多行注释  */</li>
-<li>变量声明：JavaScript是弱类型语言，所以再也不用定义类型，更没有强制转换之类的，所以所有的变量都用<code>var</code>声明。如果你不写<code>var</code>声明变量也可以，它自动会认为你写了。这是我最喜欢JavaScript的地方，比Java可爱！</li>
+<li>变量声明：JavaScript是弱类型语言，所以再也不用定义类型，一切变量都是对象，所以没有Java那样的基本类型，更没有强制转换之类的，所有的变量都用<code>var</code>声明。如果你不写<code>var</code>声明变量也可以，它自动会认为你写了。这是我最喜欢JavaScript的地方，比Java可爱！</li>
 <li>方法都叫function，定义格式：<br>
 <figure class="highlight javascript"><figcaption><span>[index.html]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">     函数代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
