@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.growingio.android.test",
+    "sha256_cert_fingerprints":
+    ["FF:EB:88:D7:C5:14:0E:CE:E8:ED:86:91:13:50:F2:22:46:6B:F7:B8:E6:D1:CE:B7:DA:33:C8:98:AB:39:79:DA"]
+  }
+}]
