@@ -26,8 +26,6 @@
     
 
     
-        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml">
-    
 
     
 
@@ -74,10 +72,6 @@
                             
                                         
                                     
-                                <li class="main-nav-list-item">
-                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
-                                </li>
-                            
                         </ul>
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
@@ -181,7 +175,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2019/04/19/hello-world/" data-id="cjunwwm2c000078v8bhnwbh68" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://yoursite.com/2019/04/19/hello-world/" data-id="cjuoxsegd00003rtwbwlcuysq" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -249,7 +243,7 @@
         "@type": "BlogPosting",
         "author": {
             "@type": "Person",
-            "name": "John Doe"
+            "name": "Ying Wang"
         },
         "headline": "Hello World",
         "image": "http://yoursite.com",
@@ -270,9 +264,8 @@ Quick"
     <section id="comments">
     
         
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
+<div id="comment-container"></div>
+
 
     
     </section>
@@ -289,48 +282,8 @@ Quick"
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-google-plus"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="https://github.com/lizwangying" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-rss"></i>
                     </a>
                 </li>
                 
@@ -427,7 +380,7 @@ Quick"
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2019 John Doe</p>
+                <p>&copy; 2019 Ying Wang</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
             <div class="footer-plugins">
@@ -442,20 +395,20 @@ Quick"
 
         
     
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    var disqus_url = 'http://yoursite.com/2019/04/19/hello-world/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '8cdc149c964d48b69b14',
+        clientSecret: '78fbe448108d7bdcc55eea42a07672871cbed896',
+        id: '6502094ac31ce8477f9e79ebdcb3224c',
+        repo: 'lizwangying.github.io',
+        owner: 'lizwangying',
+        admin: "lizwangying"
+    })
+    gitalk.render('comment-container')
+</script>
+
 
 
 
