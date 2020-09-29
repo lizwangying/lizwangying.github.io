@@ -103,4 +103,12 @@ theme: hueman
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/lizwangying/lizwangying.github.io
+  branch: master
+  token: ''
+  name: Liz
+  email: lizwangying@icloud.com
+  extend_dirs: /
+  ignore_hidden: false # default is true
+  ignore_pattern: regexp  # whatever file that matches the regexp will be ignored when deploying
