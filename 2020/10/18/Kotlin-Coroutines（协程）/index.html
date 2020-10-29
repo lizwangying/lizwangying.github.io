@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Kotlin Coroutines（协程） | Liz的技术博客</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="kotlin" />
+    
+    <meta name="description" content="阅读《深入理解Kotlin协程》—— 霍丙乾  的读书笔记，博客内容多数为摘抄和总结，侵删。 注意：大家过年回家的抢票软件是携程，而我们 Kotlin 的 coroutines 翻译过来是协程。从名字看大概能猜到是异步的代码相互协作的程序。 What is Kotlin Corutines协程: 就是函数或者一段程序能够被 挂起 ，稍后再挂起的位置 恢复 。而线程是一旦开始就不会暂停，直到任务结束">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Coroutines（协程）">
+<meta property="og:url" content="http://example.com/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/index.html">
+<meta property="og:site_name" content="Liz的技术博客">
+<meta property="og:description" content="阅读《深入理解Kotlin协程》—— 霍丙乾  的读书笔记，博客内容多数为摘抄和总结，侵删。 注意：大家过年回家的抢票软件是携程，而我们 Kotlin 的 coroutines 翻译过来是协程。从名字看大概能猜到是异步的代码相互协作的程序。 What is Kotlin Corutines协程: 就是函数或者一段程序能够被 挂起 ，稍后再挂起的位置 恢复 。而线程是一旦开始就不会暂停，直到任务结束">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-18T11:33:09.000Z">
+<meta property="article:modified_time" content="2020-10-29T13:14:34.705Z">
+<meta property="article:author" content="Liz">
+<meta property="article:tag" content="kotlin">
+<meta name="twitter:card" content="summary">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Kotlin/">Kotlin</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Kotlin-Coroutines（协程）" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Kotlin Coroutines（协程）
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/" class="article-date">
+       <time datetime="2020-10-18T11:33:09.000Z" itemprop="datePublished">2020-10-18</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/" class="article-date">
+     <time datetime="2020-10-29T13:14:34.705Z" itemprop="dateModified">2020-10-29</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/kotlin/" rel="tag">kotlin</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><strong>阅读《深入理解Kotlin协程》—— 霍丙乾  的读书笔记，博客内容多数为摘抄和总结，侵删。</strong></p>
+<p>注意：大家过年回家的抢票软件是携程，而我们 Kotlin 的 coroutines 翻译过来是协程。从名字看大概能猜到是异步的代码相互协作的程序。</p>
+<h2 id="What-is-Kotlin-Corutines"><a href="#What-is-Kotlin-Corutines" class="headerlink" title="What is Kotlin Corutines"></a>What is Kotlin Corutines</h2><p><strong>协程</strong>: 就是函数或者一段程序能够被 <code>挂起</code> ，稍后再挂起的位置 <code>恢复</code> 。而线程是一旦开始就不会暂停，直到任务结束。线程之间是抢占式的调度，因此不存在协作问题。</p>
+<p><code>挂起</code> 和 <code>恢复</code> 是协程主动让出运行权来实现协作的，协程和核心也是程序自己处理挂起和恢复。</p>
+<p>线程的调度一般是由操作系统实现控制的，而大多数协程是由于语言层面自己实现。</p>
+<p>协程需要支持挂起和恢复，因此需要对挂起点的状态进行保存，他们是否开辟相应的调用栈有两种实现方式。  </p>
+<ul>
+<li><strong>有栈协程（Stackful Coroutine）</strong>:协程有自己的调用栈，类似线程的，实现方式就类似线程的调度，不同点体现在调度上。</li>
+<li><strong>无栈协程（Stackless Coroutine）</strong>：协程没有自己的调用栈，挂起点的状态通过状态机或者闭包等语法实现。有栈协程总是会给协程开辟一块内存，因此内存消耗大大增加，而无栈协程就在内存方面比较有优势。（今年面试第一次被问到闭包，原来是因为这个。）</li>
+</ul>
+<p>Kotlin 的协程是一种无栈协程，他的控制流转依靠对协程体本身编译生成的装填机的状态流转实现。变量保存也是通过闭包语法来实现的。</p>
+<p>调度过程中，根据协程调度权的转移目标不同又可以将协程分为 <code>对协协程</code> 和 <code>非对协协程</code>。</p>
+<ul>
+<li><strong>对协协程（Symmetric Coroutine）</strong> ：任何一个协程都是相互独立且平等的，调度前可以再任意协程之间转移。</li>
+<li><strong>非对协协程（Asymmetric Coroutine）</strong>：协程让出到底全的目标只能是他的调度者，即协程之间存在调用和被调用的关系。</li>
+</ul>
+<h2 id="How-is-that-work"><a href="#How-is-that-work" class="headerlink" title="How is that work ?"></a>How is that work ?</h2><h2 id="Why-use-it"><a href="#Why-use-it" class="headerlink" title="Why use it ?"></a>Why use it ?</h2>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://example.com/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/" data-id="ckgf18v6h0000dbph5dbo7r3v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Liz"
+        },
+        "headline": "Kotlin Coroutines（协程）",
+        "image": "http://example.com",
+        "keywords": "kotlin",
+        "genre": "Kotlin",
+        "datePublished": "2020-10-18",
+        "dateCreated": "2020-10-18",
+        "dateModified": "2020-10-29",
+        "url": "http://example.com/2020/10/18/Kotlin-Coroutines（协程）/",
+        "description": "阅读《深入理解Kotlin协程》—— 霍丙乾  的读书笔记，博客内容多数为摘抄和总结，侵删。
+注意：大家过年回家的抢票软件是携程，而我们 Kotlin 的 coroutines 翻译过来是协程。从名字看大概能猜到是异步的代码相互协作的程序。
+What is Kotlin Corutines协程: 就是函数或者一段程序能够被 挂起 ，稍后再挂起的位置 恢复 。而线程是一旦开始就不会暂停，直到任务结束",
+        "wordCount": 59
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/lizwangying" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">二叉树入门</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/" class="title">Kotlin Coroutines（协程）</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T11:33:09.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="title">二叉树入门</a></p>
+                            <p class="item-date"><time datetime="2020-09-29T14:02:25.000Z" itemprop="datePublished">2020-09-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kotlin/">Kotlin</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/" rel="tag">binary tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Liz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '8cdc149c964d48b69b14',
+        clientSecret: '78fbe448108d7bdcc55eea42a07672871cbed896',
+        id: 'e26ca62fb2b7778c3ba285a79d354796',
+        repo: 'lizwangying.github.io',
+        owner: 'lizwangying',
+        admin: "lizwangying"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

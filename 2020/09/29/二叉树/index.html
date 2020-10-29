@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>二叉树入门 | Liz的技术博客</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="binary tree" />
+    
+    <meta name="description" content="二叉树遍历分为： 二叉树深度优先遍历 ( DFS ，即为 Depth First Search ) 前序遍历 中序遍历 后序遍历   二叉树广度优先遍历 (BFS，即为 Breadth First Search ) 层序优先遍历        记忆心得：前中后是将根节点作为参照物，比如前序就是根节点第一个遍历，中序就是根节点第二个，后序就是根节点最后。 后文以此二叉树为例：   12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树入门">
+<meta property="og:url" content="http://example.com/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:site_name" content="Liz的技术博客">
+<meta property="og:description" content="二叉树遍历分为： 二叉树深度优先遍历 ( DFS ，即为 Depth First Search ) 前序遍历 中序遍历 后序遍历   二叉树广度优先遍历 (BFS，即为 Breadth First Search ) 层序优先遍历        记忆心得：前中后是将根节点作为参照物，比如前序就是根节点第一个遍历，中序就是根节点第二个，后序就是根节点最后。 后文以此二叉树为例：   12345">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-29T14:02:25.000Z">
+<meta property="article:modified_time" content="2020-10-29T15:26:08.937Z">
+<meta property="article:author" content="Liz">
+<meta property="article:tag" content="binary tree">
+<meta name="twitter:card" content="summary">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Kotlin/">Kotlin</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Algorithm/">Algorithm</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-二叉树" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        二叉树入门
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="article-date">
+       <time datetime="2020-09-29T14:02:25.000Z" itemprop="datePublished">2020-09-29</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="article-date">
+     <time datetime="2020-10-29T15:26:08.937Z" itemprop="dateModified">2020-10-29</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/binary-tree/" rel="tag">binary tree</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            </br>  
+
+<h2 id="二叉树遍历分为："><a href="#二叉树遍历分为：" class="headerlink" title="二叉树遍历分为："></a>二叉树遍历分为：</h2><ul>
+<li>二叉树深度优先遍历 ( <code>DFS</code> ，即为 <code>Depth First Search</code> )<ul>
+<li>前序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历</li>
+</ul>
+</li>
+<li>二叉树广度优先遍历 (<code>BFS</code>，即为 <code>Breadth First Search</code> )<ul>
+<li>层序优先遍历    </li>
+</ul>
+</li>
+</ul>
+<h4 id="记忆心得："><a href="#记忆心得：" class="headerlink" title="记忆心得："></a>记忆心得：</h4><p>前中后是将根节点作为参照物，比如前序就是根节点第一个遍历，中序就是根节点第二个，后序就是根节点最后。</p>
+<p>后文以此二叉树为例：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    F</span><br><span class="line">   &#x2F;  \</span><br><span class="line">  B    G</span><br><span class="line"> &#x2F;\     \</span><br><span class="line">A  D     I</span><br><span class="line">   &#x2F;\   &#x2F;</span><br><span class="line">  C E  H</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><p>前序遍历首先访问根节点，然后遍历左子树，最后遍历右子树。<br>结果：F B A D C E G I H </p>
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><p>中序遍历是先遍历左子树，然后访问根节点，然后遍历右子树。<br>结果：A B C D E F G <strong>H I</strong>  </p>
+<p>通常来说，对于二叉搜索树，我们可以通过中序遍历得到一个递增的有序序列。</p>
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><p>后序遍历是先遍历左子树，然后遍历右子树，最后访问树的根节点。<br>结果：A C E D B H I G F  </p>
+<p>值得注意的是，当你删除树中的节点时，删除过程将按照后序遍历的顺序进行。 也就是说，当你删除一个节点时，你将首先删除它的左节点和它的右边的节点，然后再删除节点本身。  </p>
+<p>另外，后序在数学表达中被广泛使用。 编写程序来解析后缀表示法更为容易。 这里是一个例子：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    +</span><br><span class="line">   &#x2F; \</span><br><span class="line">  *   5</span><br><span class="line"> &#x2F;\</span><br><span class="line">4  -</span><br><span class="line">  &#x2F; \</span><br><span class="line"> 7   2</span><br></pre></td></tr></table></figure>
+
+<p>中序遍历：4 * 7 - 2 + 5<br>后序遍历：4 7 2 - * 5 +</p>
+<p>您可以使用<strong>中序遍历轻松找出原始表达式</strong>。 但是程序处理这个表达式时并不容易，因为你必须检查操作的优先级。</p>
+<p>如果你想对这棵树进行后序遍历，使用栈来处理表达式会变得更加容易。 每遇到一个操作符，就可以从栈中弹出栈顶的两个元素，计算并将结果返回到栈中。  </p>
+<p>后序遍历 <code>4 7 2 - * 5 +</code> 的入栈出栈可演示为：  </p>
+<table>
+<thead>
+<tr>
+<th><code>4</code> 入栈</th>
+<th><code>7</code> 入栈</th>
+<th><code>2</code> 入栈</th>
+<th><code>-</code> 弹出两个元素</th>
+<th><code>*</code> 弹出两个元素</th>
+<th><code>5</code> 入栈</th>
+<th><code>+</code> 弹出两个元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4</td>
+<td>7</td>
+<td>2</td>
+<td>7-2</td>
+<td>4 * 7 - 2</td>
+<td>5</td>
+<td>4 * 7 - 2 + 5</td>
+</tr>
+<tr>
+<td></td>
+<td>4</td>
+<td>7</td>
+<td>4</td>
+<td></td>
+<td>4 * 7 - 2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="递归遍历"><a href="#递归遍历" class="headerlink" title="递归遍历"></a>递归遍历</h1><h4 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h4><p>输入: [1,null,2,3]    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"> \</span><br><span class="line">  2</span><br><span class="line"> &#x2F;</span><br><span class="line"> 3   </span><br></pre></td></tr></table></figure>
+<p>输出: [1,2,3]    </p>
+<h4 id="解题代码："><a href="#解题代码：" class="headerlink" title="解题代码："></a>解题代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> * --------------------</span></span><br><span class="line"><span class="comment"> * coding 中遇到的问题：</span></span><br><span class="line"><span class="comment"> * 1. 递归过程中 new 对象很浪费资源，并且会被覆盖，怎么创建对象呢？  </span></span><br><span class="line"><span class="comment"> * 不能重复创建对象，尤其是返回值，所以需要将递归的部分新建一个函数，</span></span><br><span class="line"><span class="comment"> * 创建对象放在外面，返回值作为参数传递给递归函数，新建对象放在调用递归之前。</span></span><br><span class="line"><span class="comment"> * 2. 内循环开始 return 的时机是什么？</span></span><br><span class="line"><span class="comment"> * 常见是当前元素判断为空。</span></span><br><span class="line"><span class="comment"> * 3. 整个递归的结果怎么 return?</span></span><br><span class="line"><span class="comment"> * 递归函数的参数记录最终的返回值。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        traversal(root,result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traversal</span><span class="params">(TreeNode root , List&lt;Integer&gt; result)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">            result.add(root.val);</span><br><span class="line">            <span class="keyword">if</span>(root.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">                traversal(root.left,result);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(root.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">                traversal(root.right,result);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="递归要素"><a href="#递归要素" class="headerlink" title="递归要素"></a>递归要素</h2><h3 id="1-确定递归函数的参数和返回值："><a href="#1-确定递归函数的参数和返回值：" class="headerlink" title="1. 确定递归函数的参数和返回值："></a>1. 确定递归函数的参数和返回值：</h3><p>确定哪些参数是递归的过程中需要处理的，那么就在<strong>递归函数里加上这个参数</strong>， 并且还要明确每次递归的返回值是什么进而确定递归函数的返回类型。</p>
+<h3 id="2-确定终止条件："><a href="#2-确定终止条件：" class="headerlink" title="2.确定终止条件："></a>2.确定终止条件：</h3><p>写完了递归算法, 运行的时候，经常会遇到栈溢出的错误，就是没写终止条件或者终止条件写的不对，操作系统也是用一个栈的结构来保存每一层递归的信息，如果递归没有终止，操作系统的内存栈必然就会溢出。</p>
+<h3 id="3-确定单层递归的逻辑："><a href="#3-确定单层递归的逻辑：" class="headerlink" title="3.确定单层递归的逻辑："></a>3.确定单层递归的逻辑：</h3><p>确定每一层递归需要处理的信息。在这里也就会重复调用自己来实现递归的过程。</p>
+<h1 id="迭代遍历"><a href="#迭代遍历" class="headerlink" title="迭代遍历"></a>迭代遍历</h1><p>迭代法一般都使用栈来实现。栈是先入后出，所以入栈顺序需要注意。  </p>
+<h1 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h1><p>层序遍历就是逐层遍历树结构。通常，我们使用一个叫做队列（Queue）的数据结构来帮助我们做广度优先搜索。<br>结果：F B G A D I C E H   </p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">例题</a></p>
+<p>BFS使用队列，把每个还没有搜索到的点依次放入队列，然后再弹出队列的头部元素当做当前遍历点。BFS总共有两个模板：</p>
+<p>如果不需要确定当前遍历到了哪一层，BFS模板如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while queue 不空：</span><br><span class="line">    cur &#x3D; queue.pop()</span><br><span class="line">    for 节点 in cur的所有相邻节点：</span><br><span class="line">        if 该节点有效且未访问过：</span><br><span class="line">            queue.push(该节点)</span><br></pre></td></tr></table></figure>
+
+<p>如果要确定当前遍历到了哪一层，BFS模板如下。<br>这里增加了level表示当前遍历到二叉树中的哪一层了，也可以理解为在一个图中，现在已经走了多少步了。size表示在当前遍历层有多少个元素，也就是队列中的元素数，我们把这些元素一次性遍历完，即把当前层的所有元素都向外走了一步。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">level &#x3D; 0</span><br><span class="line">while queue 不空：</span><br><span class="line">    size &#x3D; queue.size()</span><br><span class="line">    while (size --) &#123;</span><br><span class="line">        cur &#x3D; queue.pop()</span><br><span class="line">        for 节点 in cur的所有相邻节点：</span><br><span class="line">            if 该节点有效且未被访问过：</span><br><span class="line">                queue.push(该节点)</span><br><span class="line">    &#125;</span><br><span class="line">    level ++;</span><br></pre></td></tr></table></figure>
+
+
+<p>上面两个是通用模板，在任何题目中都可以用，是要记住的！</p>
+<p>本题要求二叉树的层次遍历，所以同一层的节点应该放在一起，故使用模板二。</p>
+<p>使用队列保存每层的所有节点，每次把队列里的原先所有节点进行出队列操作，再把每个元素的非空左右子节点进入队列。因此即可得到每层的遍历。  </p>
+<h1 id="DFS-与-BFS-的特点比较"><a href="#DFS-与-BFS-的特点比较" class="headerlink" title="DFS 与 BFS 的特点比较"></a>DFS 与 BFS 的特点比较</h1><h3 id="BFS-的适用场景"><a href="#BFS-的适用场景" class="headerlink" title="BFS 的适用场景"></a>BFS 的适用场景</h3><h3 id="如何用-BFS-进行层序遍历"><a href="#如何用-BFS-进行层序遍历" class="headerlink" title="如何用 BFS 进行层序遍历"></a>如何用 BFS 进行层序遍历</h3><h3 id="如何用-BFS-求解最短路径问题"><a href="#如何用-BFS-求解最短路径问题" class="headerlink" title="如何用 BFS 求解最短路径问题"></a>如何用 BFS 求解最短路径问题</h3><h1 id="运用递归解决树的问题"><a href="#运用递归解决树的问题" class="headerlink" title="运用递归解决树的问题"></a>运用递归解决树的问题</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/">给定一个二叉树，请寻找它的最大深度。  </a> </li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">判断二叉树是否对称</a><ul>
+<li>递归解法： 双指针判断</li>
+<li>迭代解法：层序遍历，根节点入队列两次，然后每次拉出来两个节点对比是否相等 </li>
+</ul>
+</li>
+</ul>
+<h2 id="前序遍历（自顶向下）"><a href="#前序遍历（自顶向下）" class="headerlink" title="前序遍历（自顶向下）"></a>前序遍历（自顶向下）</h2><p>根节点的深度是1。<br>depth = 1, answer = 0;    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private int answer;</span><br><span class="line">private void maximum_depth(TreeNode root, int depth) &#123;</span><br><span class="line">    if (root &#x3D;&#x3D; null) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (root.left &#x3D;&#x3D; null &amp;&amp; root.right &#x3D;&#x3D; null) &#123;</span><br><span class="line">        answer &#x3D; Math.max(answer, depth);</span><br><span class="line">    &#125;</span><br><span class="line">    maximum_depth(root.left, depth + 1);</span><br><span class="line">    maximum_depth(root.right, depth + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="后序遍历（自底向上）"><a href="#后序遍历（自底向上）" class="headerlink" title="后序遍历（自底向上）"></a>后序遍历（自底向上）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximum_depth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;                                   <span class="comment">// return 0 for null node</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> left_depth = maximum_depth(root.left);</span><br><span class="line">	<span class="keyword">int</span> right_depth = maximum_depth(root.right);</span><br><span class="line">	<span class="keyword">return</span> Math.max(left_depth, right_depth) + <span class="number">1</span>;	<span class="comment">// return depth of the subtree rooted at root</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>了解递归并利用递归解决问题并不容易。</p>
+<p>当遇到树问题时，请先思考一下两个问题：</p>
+<p>你能确定一些参数，从该节点自身解决出发寻找答案吗？<br>你可以使用这些参数和节点本身的值来决定什么应该是传递给它子节点的参数吗？<br>如果答案都是肯定的，那么请尝试使用 “自顶向下” 的递归来解决此问题。</p>
+<p>或者你可以这样思考：对于树中的任意一个节点，如果你知道它子节点的答案，你能计算出该节点的答案吗？ 如果答案是肯定的，那么 “自底向上” 的递归可能是一个不错的解决方法。</p>
+<h1 id="题外话："><a href="#题外话：" class="headerlink" title="题外话："></a>题外话：</h1><br>
+下面是Java中Queue的一些常用方法：    
+
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>作用</th>
+<th>异常处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add</td>
+<td>增加一个元索</td>
+<td>如果队列已满，则抛出一个IIIegaISlabEepeplian异常</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>移除并返回队列头部的元素</td>
+<td>如果队列为空，则抛出一个NoSuchElementException异常</td>
+</tr>
+<tr>
+<td>element</td>
+<td>返回队列头部的元素</td>
+<td>如果队列为空，则抛出一个NoSuchElementException异常</td>
+</tr>
+<tr>
+<td>offer</td>
+<td>添加一个元素并返回true</td>
+<td>如果队列已满，则返回false</td>
+</tr>
+<tr>
+<td>poll</td>
+<td>移除并返问队列头部的元素</td>
+<td>如果队列为空，则返回null</td>
+</tr>
+<tr>
+<td>peek</td>
+<td>返回队列头部的元素</td>
+<td>如果队列为空，则返回null</td>
+</tr>
+<tr>
+<td>put</td>
+<td>添加一个元素</td>
+<td>如果队列满，则阻塞</td>
+</tr>
+<tr>
+<td>take</td>
+<td>移除并返回队列头部的元素</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/x63shc/">https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/x63shc/</a>   </p>
+<p>作者：fuxuemingzhu<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/tao-mo-ban-bfs-he-dfs-du-ke-yi-jie-jue-by-fuxuemin/">https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/tao-mo-ban-bfs-he-dfs-du-ke-yi-jie-jue-by-fuxuemin/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   </p>
+<p>作者：力扣 (LeetCode)<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/">https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://example.com/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/" data-id="ckfo1b62s00000ephg6yr8rxo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Liz"
+        },
+        "headline": "二叉树入门",
+        "image": "http://example.com",
+        "keywords": "binary tree",
+        "genre": "Algorithm",
+        "datePublished": "2020-09-29",
+        "dateCreated": "2020-09-29",
+        "dateModified": "2020-10-29",
+        "url": "http://example.com/2020/09/29/二叉树/",
+        "description": "  
+
+二叉树遍历分为：
+二叉树深度优先遍历 ( DFS ，即为 Depth First Search )
+前序遍历
+中序遍历
+后序遍历
+
+
+二叉树广度优先遍历 (BFS，即为 Breadth First Search )
+层序优先遍历    
+
+
+
+记忆心得：前中后是将根节点作为参照物，比如前序就是根节点第一个遍历，中序就是根节点第二个，后序就是根节点最后。
+后文以此二叉树为例：  
+12345",
+        "wordCount": 1140
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/lizwangying" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Kotlin Coroutines（协程）
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2020/10/18/Kotlin-Coroutines%EF%BC%88%E5%8D%8F%E7%A8%8B%EF%BC%89/" class="title">Kotlin Coroutines（协程）</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T11:33:09.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2020/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="title">二叉树入门</a></p>
+                            <p class="item-date"><time datetime="2020-09-29T14:02:25.000Z" itemprop="datePublished">2020-09-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kotlin/">Kotlin</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/" rel="tag">binary tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Liz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '8cdc149c964d48b69b14',
+        clientSecret: '78fbe448108d7bdcc55eea42a07672871cbed896',
+        id: '397ae1fecb34311468da7f520fce804c',
+        repo: 'lizwangying.github.io',
+        owner: 'lizwangying',
+        admin: "lizwangying"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
