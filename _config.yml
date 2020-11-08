@@ -64,7 +64,7 @@ theme: icarus
 deploy:
   type: git
   repo: 'https://github.com/lizwangying/lizwangying.github.io'
-  branch: master
+  branch: public
   token: ''
   name: Liz
   email: lizwangying@icloud.com
