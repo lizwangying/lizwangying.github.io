@@ -28,7 +28,7 @@ external_link:
   field: site
   exclude: ''
 filename_case: 0
-render_drafts: false
+render_drafts: true
 post_asset_folder: false
 relative_link: false
 future: true
@@ -60,7 +60,7 @@ pagination_dir: page
 include: null
 exclude: null
 ignore: null
-theme: hueman
+theme: icarus
 deploy:
   type: git
   repo: 'https://github.com/lizwangying/lizwangying.github.io'
